@@ -27,11 +27,9 @@
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light" id="dashboard-link">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light" id="contracts-link">Contracts</a>
-        <!-- <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> -->
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="contracts-link">Active Contracts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="history-link">History</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light" id="new-contract-link">Create New Contract</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -78,37 +76,21 @@
 
 
 
-
-      <!-- 
-      <div class="container-fluid" id="template-page">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger
-          screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the
-          <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the
-          <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-      </div> -->
-
       <div class="container-fluid" id="dashboard-page">
         <h1 class="mt-4">This is the dashboard</h1>
-        <!-- <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger
-          screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the
-          <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the
-          <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p> -->
       </div>
 
       <div class="container-fluid" id="contracts-page">
         <h1 class="mt-4">This is the contracts page</h1>
-        <!-- <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger
-          screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the
-          <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the
-          <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p> -->
       </div>
 
+      <div class="container-fluid" id="history-page">
+        <h1 class="mt-4">This is the history page</h1>
+      </div>
 
-
+      <div class="container-fluid" id="new-contract-page">
+        <h1 class="mt-4">This is the new contract page</h1>
+      </div>
 
 
     </div>
@@ -123,18 +105,37 @@
 
   <!-- Menu Toggle Script -->
   <script>
-    // $("#dashboard-page").hide();
     $("#contracts-page").hide();
+    $("#history-page").hide();
+    $("#new-contract-page").hide();
 
     $("#dashboard-link").click(function (e) {
       $("#dashboard-page").show();
       $("#contracts-page").hide();
+      $("#history-page").hide();
+      $("#new-contract-page").hide();
     });
 
     $("#contracts-link").click(function (e) {
       $("#contracts-page").show();
       $("#dashboard-page").hide();
+      $("#history-page").hide();
+      $("#new-contract-page").hide();
     });
+
+    $("#history-link").click(function (e) {
+      $("#history-page").show();
+      $("#dashboard-page").hide();
+      $("#contracts-page").hide();
+      $("#new-contract-page").hide();
+    });
+
+    $("#new-contract-link").click(function (e) {
+      $("#new-contract-page").show();
+      $("#dashboard-page").hide();
+      $("#contracts-page").hide();
+      $("#history-page").hide();
+    })
   </script>
 
 </body>
