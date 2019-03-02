@@ -2,7 +2,11 @@
   "_args": [
     [
       "@fortawesome/fontawesome-free@5.7.2",
+<<<<<<< HEAD
       "/Users/howardlee/Documents/coding/legalhack/round2/startbootstrap-landing-page-master"
+=======
+      "/Users/sponis1/Projects/ourterms-semifinal"
+>>>>>>> 032aafedeef832b6f82fe8e2ff07fa4fac421d23
     ]
   ],
   "_from": "@fortawesome/fontawesome-free@5.7.2",
@@ -27,7 +31,11 @@
   ],
   "_resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.7.2.tgz",
   "_spec": "5.7.2",
+<<<<<<< HEAD
   "_where": "/Users/howardlee/Documents/coding/legalhack/round2/startbootstrap-landing-page-master",
+=======
+  "_where": "/Users/sponis1/Projects/ourterms-semifinal",
+>>>>>>> 032aafedeef832b6f82fe8e2ff07fa4fac421d23
   "author": {
     "name": "Dave Gandy",
     "email": "dave@fontawesome.com",
