@@ -7,6 +7,8 @@
   overflow-x: hidden;
 }
 
+
+
 #sidebar-wrapper {
   min-height: 100vh;
   margin-left: -15rem;
@@ -31,6 +33,47 @@
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
+}
+
+#dashboard-page{
+  text-align: center;
+}
+#dashboard-page article{
+  background-color: #E8E4E3;
+
+}
+/*
+#dashboard-page #deadlines{
+  background-color: #E8E4E3;
+}
+*/
+#deadlines ul{
+  list-style-type: none;
+}
+
+
+#card{
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  margin: 1em;
+  box-shadow: 5px 10px #888888;
+  text-align: center;
+
+}
+#card ul{
+  list-style-type: square;
+  
 }
 
 @media (min-width: 768px) {
