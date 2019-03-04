@@ -11,15 +11,18 @@
   <title>OurTerms - Dashboard</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="./dashboard.css" rel="stylesheet">
 
+  <link rel="import" id="dashboard-import" href="./dashboard-main.html">
+  <link rel="import" id="contracts-import" href="../contracts/contracts.html">
+  <link rel="import" id="history-import" href="../history/history.html">
+  <link rel="import" id="new-contract-import" href="../new-contract/new-contract.html">
 </head>
 
 <body>
-
   <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
@@ -38,8 +41,6 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -62,112 +63,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Sign Out</a>
             </li>
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li> -->
-            <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
           </ul>
         </div>
       </nav>
 
-
-
-
-
-
-      <div class="container-fluid" id="dashboard-page">
-        <h1 class="mt-4">Hello Howard!</h1>
-        <article id ="deadlines">Upcoming deadlines
-          <ul>
-          <li> This is what I still need to do for Contract 1</li>
-          <li> This is what I still need to do for Contract 2</li>
-          <li> This is what I still need to do for Contract 3</li>
-
-
-        </ul>
-        </article>
-      </div>
-      <div class = "row">
-      <div class="col-xl-3 col-md-6 mb-4" >
-        <article id ="card">        
-          <h3 class="mt-4">Active contracts</h3>
-          <ul>
-          <li> Contract 1</li>
-          <li> Contracts 2</li>
-          <li> Contract 3</li>
-        </ul>
-        </article>
-      </div>
-
-        <div class="col-xl-3 col-md-6 mb-4" >
-        <article id ="card">        
-          <h3 class="mt-4">Milestones</h3>
-          <ul>
-          <li>  Contract 1</li>
-          <li>  Contract 2</li>
-          <li>  Contract 3</li>
-
-
-        </ul>
-        </article>
-      </div>
-
-        <div class="col-xl-3 col-md-6 mb-4" >
-        <article id ="card">        
-          <h3 class="mt-4">Payment pending</h3>
-          <ul>
-            <li>  Contract 1</li>
-            <li>  Contract 2</li>
-            <li>  Contract 3</li>
-        </ul>
-        </article>
-      </div>
-    </div>
-
-
-
-
-
-      <div class="container-fluid" id="contracts-page">
-        <h1 class="mt-4">This is the contracts page</h1>
-      </div>
-
-
-
-
-
-
-      <div class="container-fluid" id="history-page">
-        <h1 class="mt-4">This is the history page</h1>
-      </div>
-
-
-
-
-
-
-
-      <div class="container-fluid" id="new-contract-page">
-        <h1 class="mt-4">This is the new contract page</h1>
-      </div>
-
-
+      <!-- This is Where each page lives -->
+      <div class="container-fluid" id="dashboard-page"></div>
+      <div class="container-fluid" id="contracts-page"></div>
+      <div class="container-fluid" id="history-page"></div>
+      <div class="container-fluid" id="new-contract-page"></div>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -175,11 +79,32 @@
   <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Menu Toggle Script -->
   <script>
+    var dashLink = document.querySelector('link[id="dashboard-import"]');
+    var dashTemplate = dashLink.import.querySelector('template');
+    var dashClone = document.importNode(dashTemplate.content, true);
+    document.querySelector('#dashboard-page').appendChild(dashClone);
+
+    var contractsLink = document.querySelector('link[id="contracts-import"]');
+    var contractsTemplate = contractsLink.import.querySelector('template');
+    var contractsClone = document.importNode(contractsTemplate.content, true);
+    document.querySelector('#contracts-page').appendChild(contractsClone);
+
+    var historyLink = document.querySelector('link[id="history-import"]');
+    var historyTemplate = historyLink.import.querySelector('template');
+    var historyClone = document.importNode(historyTemplate.content, true);
+    document.querySelector('#history-page').appendChild(historyClone);
+
+    var newContractLink = document.querySelector('link[id="new-contract-import"]');
+    var newContractTemplate = newContractLink.import.querySelector('template');
+    var newContractClone = document.importNode(newContractTemplate.content, true);
+    document.querySelector('#new-contract-page').appendChild(newContractClone);
+
+
     $("#contracts-page").hide();
     $("#history-page").hide();
     $("#new-contract-page").hide();
