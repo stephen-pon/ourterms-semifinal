@@ -35,6 +35,33 @@
   margin-left: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  DASHBOARD PAGE CSS
+*/
+
 #dashboard-page{
   text-align: center;
 }
@@ -89,4 +116,120 @@
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  ACTIVE CONTRACTS PAGE CSS
+*/
+
+#contracts-page {
+  text-align: center;
+}
+
+.contract-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contract-card {
+  padding: 30px;
+  margin-top: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px 0px #1111;
+  cursor: pointer;
+}
+
+.contract-card-text {
+  font-size: 1em;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  CONTRACT DETAILS PAGE CSS
+*/
+
+#contract-detail-page {
+  /* text-align: center; */
+}
+
+.detail-title {
+  text-align: center;
+}
+
+.content-row {
+  padding-top: 5px;
+  justify-content: space-around;
+}
+
+.info-section {
+  width: 90%;
+  /* text-align: left; */
+}
+
+.section-header {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 15px;
+}
+
+.action-button {
+  height: 100px;
+  width: 200px;
+}
+
+.action-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 21px;
+  text-align: center;
 }

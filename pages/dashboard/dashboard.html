@@ -16,10 +16,11 @@
   <!-- Custom styles for this template -->
   <link href="./dashboard.css" rel="stylesheet">
 
-  <!-- <link rel="import" id="dashboard-import" href="./dashboard-main.html">
+  <link rel="import" id="dashboard-import" href="./dashboard-main.html">
   <link rel="import" id="contracts-import" href="../contracts/contracts.html">
   <link rel="import" id="history-import" href="../history/history.html">
-  <link rel="import" id="new-contract-import" href="../new-contract/new-contract.html"> -->
+  <link rel="import" id="new-contract-import" href="../new-contract/new-contract.html">
+  <link rel="import" id="contract-detail-import" href="../contract-detail/contract-detail.html">
 </head>
 
 <body>
@@ -68,65 +69,11 @@
       </nav>
 
       <!-- This is Where each page lives -->
-      <div class="container-fluid" id="dashboard-page">
-        <h1 class="mt-4">Hello Howard!</h1>
-        <article id="deadlines">Upcoming deadlines
-          <ul>
-            <li> This is what I still need to do for Contract 1</li>
-            <li> This is what I still need to do for Contract 2</li>
-            <li> This is what I still need to do for Contract 3</li>
-          </ul>
-        </article>
-        <div class="row">
-          <div class="col-xl-3 col-md-6 mb-4">
-            <article id="card">
-              <h3 class="mt-4">Active contracts</h3>
-              <ul>
-                <li> Contract 1</li>
-                <li> Contracts 2</li>
-                <li> Contract 3</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="col-xl-3 col-md-6 mb-4">
-            <article id="card">
-              <h3 class="mt-4">Milestones</h3>
-              <ul>
-                <li> Contract 1</li>
-                <li> Contract 2</li>
-                <li> Contract 3</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="col-xl-3 col-md-6 mb-4">
-            <article id="card">
-              <h3 class="mt-4">Payment pending</h3>
-              <ul>
-                <li> Contract 1</li>
-                <li> Contract 2</li>
-                <li> Contract 3</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="container-fluid" id="contracts-page">
-        <h1 class="mt-4">This is the imported contracts page</h1>
-      </div>
-
-
-      <div class="container-fluid" id="history-page">
-        <h1 class="mt-4">This is the imported history page</h1>
-      </div>
-
-
-      <div class="container-fluid" id="new-contract-page">
-        <h1 class="mt-4">This is the imported new contract page</h1>
-      </div>
+      <div class="container-fluid" id="dashboard-page"></div>
+      <div class="container-fluid" id="contracts-page"></div>
+      <div class="container-fluid" id="history-page"></div>
+      <div class="container-fluid" id="new-contract-page"></div>
+      <div class="container-fluid" id="contract-detail-page"></div>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -139,36 +86,44 @@
 
   <!-- Menu Toggle Script -->
   <script>
-    // var dashLink = document.querySelector('link[id="dashboard-import"]');
-    // var dashTemplate = dashLink.import.querySelector('template');
-    // var dashClone = document.importNode(dashTemplate.content, true);
-    // document.querySelector('#dashboard-page').appendChild(dashClone);
+    var dashLink = document.querySelector('link[id="dashboard-import"]');
+    var dashTemplate = dashLink.import.querySelector('template');
+    var dashClone = document.importNode(dashTemplate.content, true);
+    document.querySelector('#dashboard-page').appendChild(dashClone);
 
-    // var contractsLink = document.querySelector('link[id="contracts-import"]');
-    // var contractsTemplate = contractsLink.import.querySelector('template');
-    // var contractsClone = document.importNode(contractsTemplate.content, true);
-    // document.querySelector('#contracts-page').appendChild(contractsClone);
+    var contractsLink = document.querySelector('link[id="contracts-import"]');
+    var contractsTemplate = contractsLink.import.querySelector('template');
+    var contractsClone = document.importNode(contractsTemplate.content, true);
+    document.querySelector('#contracts-page').appendChild(contractsClone);
 
-    // var historyLink = document.querySelector('link[id="history-import"]');
-    // var historyTemplate = historyLink.import.querySelector('template');
-    // var historyClone = document.importNode(historyTemplate.content, true);
-    // document.querySelector('#history-page').appendChild(historyClone);
+    var historyLink = document.querySelector('link[id="history-import"]');
+    var historyTemplate = historyLink.import.querySelector('template');
+    var historyClone = document.importNode(historyTemplate.content, true);
+    document.querySelector('#history-page').appendChild(historyClone);
 
-    // var newContractLink = document.querySelector('link[id="new-contract-import"]');
-    // var newContractTemplate = newContractLink.import.querySelector('template');
-    // var newContractClone = document.importNode(newContractTemplate.content, true);
-    // document.querySelector('#new-contract-page').appendChild(newContractClone);
+    var newContractLink = document.querySelector('link[id="new-contract-import"]');
+    var newContractTemplate = newContractLink.import.querySelector('template');
+    var newContractClone = document.importNode(newContractTemplate.content, true);
+    document.querySelector('#new-contract-page').appendChild(newContractClone);
+
+    var contractDetailLink = document.querySelector('link[id="contract-detail-import"]');
+    var contractDetailTemplate = contractDetailLink.import.querySelector('template');
+    var contractDetailClone = document.importNode(contractDetailTemplate.content, true);
+    document.querySelector('#contract-detail-page').appendChild(contractDetailClone);
+
 
 
     $("#contracts-page").hide();
     $("#history-page").hide();
     $("#new-contract-page").hide();
+    $("#contract-detail-page").hide();
 
     $("#dashboard-link").click(function (e) {
       $("#dashboard-page").show();
       $("#contracts-page").hide();
       $("#history-page").hide();
       $("#new-contract-page").hide();
+      $("#contract-detail-page").hide();
     });
 
     $("#contracts-link").click(function (e) {
@@ -176,6 +131,7 @@
       $("#dashboard-page").hide();
       $("#history-page").hide();
       $("#new-contract-page").hide();
+      $("#contract-detail-page").hide();
     });
 
     $("#history-link").click(function (e) {
@@ -183,6 +139,7 @@
       $("#dashboard-page").hide();
       $("#contracts-page").hide();
       $("#new-contract-page").hide();
+      $("#contract-detail-page").hide();
     });
 
     $("#new-contract-link").click(function (e) {
@@ -190,6 +147,12 @@
       $("#dashboard-page").hide();
       $("#contracts-page").hide();
       $("#history-page").hide();
+      $("#contract-detail-page").hide();
+    });
+
+    $("#contract-card").click(function (e) {
+      $("#contracts-page").hide();
+      $("#contract-detail-page").show();
     });
   </script>
 
