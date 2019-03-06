@@ -224,6 +224,8 @@
 .action-button {
   height: 100px;
   width: 200px;
+  box-shadow: 0px 2px 4px 0px #1111;
+  cursor: pointer;
 }
 
 .action-button-content {
@@ -232,4 +234,64 @@
   justify-content: space-around;
   font-size: 21px;
   text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HISTORY PAGE CSS */
+
+.history-title {
+  text-align: center;
+}
+
+.filter-row {
+  justify-content: space-around;
+}
+
+.filter-row-container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+
+.filter-dropdown {
+  padding-left: 5px;
+}
+
+.archive-display {
+  padding-top: 10px;
+  justify-content: space-around;
+}
+
+.archive-table {
+  width: 90%;
+}
+
+.navigation-row {
+  justify-content: space-around;
+}
+
+.navigation-container {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
 }
