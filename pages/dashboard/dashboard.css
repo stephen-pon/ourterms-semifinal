@@ -63,44 +63,45 @@
 */
 
 #dashboard-page{
+  /* text-align: center; */
+}
+
+.dashboard-title {
   text-align: center;
 }
-#dashboard-page article{
-  background-color: #E8E4E3;
 
-}
-/*
-#dashboard-page #deadlines{
-  background-color: #E8E4E3;
-}
-*/
-#deadlines ul{
-  list-style-type: none;
+.dashboard-widgets-row {
+  padding-top: 50px;
+  justify-content: space-around;
 }
 
-
-#card{
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
+.dashboard-widgets-row-container {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-clip: border-box;
-  border: 1px solid #e3e6f0;
-  border-radius: 0.35rem;
-  margin: 1em;
-  box-shadow: 5px 10px #888888;
-  text-align: center;
-
+  justify-content: space-evenly
 }
-#card ul{
-  list-style-type: square;
-  
+
+.dashboard-widget {
+  height: 200px;
+  width: 350px;
+  box-shadow: 0px 2px 4px 0px #1111;
+  cursor: pointer;
+  /* margin-right: 10px; */
+}
+
+.dashboard-widget-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+.dashboard-widget-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 45px;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -226,6 +227,7 @@
   width: 200px;
   box-shadow: 0px 2px 4px 0px #1111;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .action-button-content {
@@ -236,7 +238,9 @@
   text-align: center;
 }
 
-
+.action-row {
+  display: flex;
+}
 
 
 
