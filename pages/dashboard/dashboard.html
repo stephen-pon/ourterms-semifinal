@@ -21,6 +21,8 @@
   <link rel="import" id="history-import" href="../history/history.html">
   <link rel="import" id="new-contract-import" href="../new-contract/new-contract.html">
   <link rel="import" id="contract-detail-import" href="../contract-detail/contract-detail.html">
+  <link rel="import" id="templates-import" href="../templates/templates.html">
+  <link rel="import" id="template-form-import" href="../template-form/template-form.html">
 </head>
 
 <body>
@@ -74,6 +76,28 @@
       <div class="container-fluid" id="history-page"></div>
       <div class="container-fluid" id="new-contract-page"></div>
       <div class="container-fluid" id="contract-detail-page"></div>
+      <div class="container-fluid" id="templates-page"></div>
+      <div class="container-fluid" id="template-form-page"></div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create New Contract</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              How would you like to create your new contract?
+            </div>
+            <div class="modal-footer" style="display:flex;justify-content:space-around">
+              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Feature currently disabled for demo">Upload</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="modal-button">From Template</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /#page-content-wrapper -->
 
@@ -111,12 +135,26 @@
     var contractDetailClone = document.importNode(contractDetailTemplate.content, true);
     document.querySelector('#contract-detail-page').appendChild(contractDetailClone);
 
+    var templatesLink = document.querySelector('link[id="templates-import"]');
+    var templatesTemplate = templatesLink.import.querySelector('template');
+    var templatesClone = document.importNode(templatesTemplate.content, true);
+    document.querySelector('#templates-page').appendChild(templatesClone);
+
+    var templateFormLink = document.querySelector('link[id="template-form-import"]');
+    var templateFormTemplate = templateFormLink.import.querySelector('template');
+    var templateFormClone = document.importNode(templateFormTemplate.content, true);
+    document.querySelector('#template-form-page').appendChild(templateFormClone);
 
 
     $("#contracts-page").hide();
     $("#history-page").hide();
     $("#new-contract-page").hide();
     $("#contract-detail-page").hide();
+    $("#templates-page").hide();
+    $("#template-form-page").hide();
+
+    $('[data-toggle="tooltip"]').tooltip();
+
 
     $("#dashboard-link").click(function (e) {
       $("#dashboard-page").show();
@@ -124,6 +162,8 @@
       $("#history-page").hide();
       $("#new-contract-page").hide();
       $("#contract-detail-page").hide();
+      $("#templates-page").hide();
+      $("#template-form-page").hide();
     });
 
     $("#contracts-link").click(function (e) {
@@ -132,6 +172,8 @@
       $("#history-page").hide();
       $("#new-contract-page").hide();
       $("#contract-detail-page").hide();
+      $("#templates-page").hide();
+      $("#template-form-page").hide();
     });
 
     $("#history-link").click(function (e) {
@@ -140,15 +182,27 @@
       $("#contracts-page").hide();
       $("#new-contract-page").hide();
       $("#contract-detail-page").hide();
+      $("#templates-page").hide();
+      $("#template-form-page").hide();
     });
 
     $("#new-contract-link").click(function (e) {
-      $("#new-contract-page").show();
+      $('#exampleModal').modal('show');
+    });
+
+    $("#template-link").click(function (e) {
+      $("#templates-page").hide();
+      $("#template-form-page").show();
+    });
+
+    $("#modal-button").click(function (e) {
+      $("#templates-page").show();
+      $("#new-contract-page").hide();
       $("#dashboard-page").hide();
       $("#contracts-page").hide();
       $("#history-page").hide();
       $("#contract-detail-page").hide();
-    });
+    })
 
     $("#contract-card").click(function (e) {
       $("#contracts-page").hide();

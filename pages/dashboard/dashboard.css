@@ -82,7 +82,7 @@
 
 .dashboard-widget {
   height: 200px;
-  width: 350px;
+  width: 300px;
   box-shadow: 0px 2px 4px 0px #1111;
   cursor: pointer;
   /* margin-right: 10px; */
@@ -298,4 +298,76 @@
   width: 90%;
   display: flex;
   justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TEMPLATES PAGE */
+#template-link {
+  cursor: pointer;
+}
+
+#template-link:hover {
+  background-color: lightgray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TEMPLATE FORM PAGE */
+.milestone-label {
+  padding-top: 10px;
+  border-bottom: 1px dashed lightgray;
+  margin-bottom: 15px;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-area {
+  height: 300px;
+}
+
+.form-submit-buttons {
+  display:flex;
+  justify-content: flex-end;
+  padding-bottom: 30px;
 }
