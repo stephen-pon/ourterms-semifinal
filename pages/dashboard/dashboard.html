@@ -23,6 +23,7 @@
   <link rel="import" id="contract-detail-import" href="../contract-detail/contract-detail.html">
   <link rel="import" id="templates-import" href="../templates/templates.html">
   <link rel="import" id="template-form-import" href="../template-form/template-form.html">
+  <link rel="import" id="template-save-import" href="../template-save/template-save.html">
 </head>
 
 <body>
@@ -78,6 +79,7 @@
       <div class="container-fluid" id="contract-detail-page"></div>
       <div class="container-fluid" id="templates-page"></div>
       <div class="container-fluid" id="template-form-page"></div>
+      <div class="container-fluid" id="template-save-page"></div>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -145,6 +147,11 @@
     var templateFormClone = document.importNode(templateFormTemplate.content, true);
     document.querySelector('#template-form-page').appendChild(templateFormClone);
 
+    var templateSaveLink = document.querySelector('link[id="template-save-import"]');
+    var templateSaveTemplate = templateSaveLink.import.querySelector('template');
+    var templateSaveClone = document.importNode(templateSaveTemplate.content, true);
+    document.querySelector('#template-save-page').appendChild(templateSaveClone);
+
 
     $("#contracts-page").hide();
     $("#history-page").hide();
@@ -152,6 +159,7 @@
     $("#contract-detail-page").hide();
     $("#templates-page").hide();
     $("#template-form-page").hide();
+    $("#template-save-page").hide();
 
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -164,6 +172,7 @@
       $("#contract-detail-page").hide();
       $("#templates-page").hide();
       $("#template-form-page").hide();
+      $("#template-save-page").hide();
     });
 
     $("#contracts-link").click(function (e) {
@@ -174,6 +183,7 @@
       $("#contract-detail-page").hide();
       $("#templates-page").hide();
       $("#template-form-page").hide();
+      $("#template-save-page").hide();
     });
 
     $("#history-link").click(function (e) {
@@ -184,6 +194,12 @@
       $("#contract-detail-page").hide();
       $("#templates-page").hide();
       $("#template-form-page").hide();
+      $("#template-save-page").hide();
+    });
+
+    $("#contract-card").click(function (e) {
+      $("#contracts-page").hide();
+      $("#contract-detail-page").show();
     });
 
     $("#new-contract-link").click(function (e) {
@@ -202,12 +218,20 @@
       $("#contracts-page").hide();
       $("#history-page").hide();
       $("#contract-detail-page").hide();
-    })
+      $("#template-save-page").hide();
+      $("#template-form-page").hide();
+    });
 
-    $("#contract-card").click(function (e) {
-      $("#contracts-page").hide();
+    $("#template-save-button").click(function (e) {
+      $("#template-form-page").hide();
+      $("#template-save-page").show();
+    });
+
+    $("#template-save-confirm-button").click(function (e) {
+      $("#template-save-page").hide();
       $("#contract-detail-page").show();
     });
+
   </script>
 
 </body>

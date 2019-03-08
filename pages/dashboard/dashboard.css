@@ -371,3 +371,53 @@
   justify-content: flex-end;
   padding-bottom: 30px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TEMPLATE SAVE PAGE */
+.preview-card {
+  width: 90%
+}
+
+.preview-title {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.signature-line {
+  height: 40px;
+  width: 200px;
+  border-bottom: 1px solid black;
+}
+
+.confirm-button-row {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
