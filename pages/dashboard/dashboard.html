@@ -72,7 +72,7 @@
       </nav>
 
       <!-- This is Where each page lives -->
-      <div class="container-fluid" id="dashboard-page"></div>
+      <div class="container-fluid" id="dashboard-page"><button id="send-email-button">Send email</button></div>
       <div class="container-fluid" id="contracts-page"></div>
       <div class="container-fluid" id="history-page"></div>
       <div class="container-fluid" id="new-contract-page"></div>
@@ -109,6 +109,31 @@
   <!-- Bootstrap core JavaScript -->
   <script src="../../vendor/jquery/jquery.min.js"></script>
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Email-js -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+  <script type="text/javascript">
+   (function(){
+      emailjs.init("user_tdARssLzpl5W9N1I4lxwu");
+   })();
+   $('#send-email-button').click(function (e) {
+     var template_params = {
+       "client_name": "Client Name",
+       "client_email": "andrew@andrewchan.ca",
+       "vendor_name": "Stephen Pon",
+       "vendor_email": "sponis1@gmail.com",
+     }
+     var service_id = "sendgrid";
+     var template_id = "milestone_notification";
+     var user_id = "user_tdARssLzpl5W9N1I4lxwu";
+     emailjs.send(service_id, template_id, template_params, user_id).then(function (response) {
+       console.log('SUCCESS!', response.status, response.text);
+       alert('An milestone notification has been sent to your client.');
+     }, function (err) {
+       console.log('FAILED...', err);
+     });
+   });
+  </script>
 
   <!-- Menu Toggle Script -->
   <script>
