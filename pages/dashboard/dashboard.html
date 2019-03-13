@@ -45,8 +45,7 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-          aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -72,7 +71,16 @@
       </nav>
 
       <!-- This is Where each page lives -->
-      <div class="container-fluid" id="dashboard-page"><button id="send-email-button">Send email</button></div>
+      <div class="container-fluid" id="dashboard-page">
+        <!-- <label class="sr-only" for="inlineFormInputGroupUsername2">Judge's email</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input type="email" class="form-control" id="judge-email-form" placeholder="Judge's email">
+        </div> -->
+        <button id="send-email-button">Send email</button>
+      </div>
       <div class="container-fluid" id="contracts-page"></div>
       <div class="container-fluid" id="history-page"></div>
       <div class="container-fluid" id="new-contract-page"></div>
@@ -113,26 +121,28 @@
   <!-- Email-js -->
   <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
   <script type="text/javascript">
-   (function(){
+    (function() {
       emailjs.init("user_tdARssLzpl5W9N1I4lxwu");
-   })();
-   $('#send-email-button').click(function (e) {
-     var template_params = {
-       "client_name": "Client Name",
-       "client_email": "andrew@andrewchan.ca",
-       "vendor_name": "Stephen Pon",
-       "vendor_email": "sponis1@gmail.com",
-     }
-     var service_id = "sendgrid";
-     var template_id = "milestone_notification";
-     var user_id = "user_tdARssLzpl5W9N1I4lxwu";
-     emailjs.send(service_id, template_id, template_params, user_id).then(function (response) {
-       console.log('SUCCESS!', response.status, response.text);
-       alert('An milestone notification has been sent to your client.');
-     }, function (err) {
-       console.log('FAILED...', err);
-     });
-   });
+    })();
+    $('#send-email-button').click(function(e) {
+      var template_params = {
+        "client_name": "Patrick Stewart",
+        "client_email": "patrickstewart@tng.com",
+        "vendor_name": "Hackathon Judge",
+        "vendor_email": "andrew@andrewchan.ca",
+        // "vendor_email": $('judge-email-form').val(),
+      }
+      var service_id = "sendgrid";
+      var template_id = "milestone_notification";
+      var user_id = "user_tdARssLzpl5W9N1I4lxwu";
+
+      emailjs.send(service_id, template_id, template_params, user_id).then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('An milestone notification has been sent to your client.');
+      }, function(err) {
+        console.log('FAILED...', err);
+      });
+    });
   </script>
 
   <!-- Menu Toggle Script -->
@@ -189,7 +199,7 @@
     $('[data-toggle="tooltip"]').tooltip();
 
 
-    $("#dashboard-link").click(function (e) {
+    $("#dashboard-link").click(function(e) {
       $("#dashboard-page").show();
       $("#contracts-page").hide();
       $("#history-page").hide();
@@ -200,7 +210,7 @@
       $("#template-save-page").hide();
     });
 
-    $("#contracts-link").click(function (e) {
+    $("#contracts-link").click(function(e) {
       $("#contracts-page").show();
       $("#dashboard-page").hide();
       $("#history-page").hide();
@@ -211,7 +221,7 @@
       $("#template-save-page").hide();
     });
 
-    $("#history-link").click(function (e) {
+    $("#history-link").click(function(e) {
       $("#history-page").show();
       $("#dashboard-page").hide();
       $("#contracts-page").hide();
@@ -222,21 +232,21 @@
       $("#template-save-page").hide();
     });
 
-    $("#contract-card").click(function (e) {
+    $("#contract-card").click(function(e) {
       $("#contracts-page").hide();
       $("#contract-detail-page").show();
     });
 
-    $("#new-contract-link").click(function (e) {
+    $("#new-contract-link").click(function(e) {
       $('#exampleModal').modal('show');
     });
 
-    $("#template-link").click(function (e) {
+    $("#template-link").click(function(e) {
       $("#templates-page").hide();
       $("#template-form-page").show();
     });
 
-    $("#modal-button").click(function (e) {
+    $("#modal-button").click(function(e) {
       $("#templates-page").show();
       $("#new-contract-page").hide();
       $("#dashboard-page").hide();
@@ -247,16 +257,15 @@
       $("#template-form-page").hide();
     });
 
-    $("#template-save-button").click(function (e) {
+    $("#template-save-button").click(function(e) {
       $("#template-form-page").hide();
       $("#template-save-page").show();
     });
 
-    $("#template-save-confirm-button").click(function (e) {
+    $("#template-save-confirm-button").click(function(e) {
       $("#template-save-page").hide();
       $("#contract-detail-page").show();
     });
-
   </script>
 
 </body>
